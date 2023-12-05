@@ -1,0 +1,29 @@
+{
+  "name": "Terraform",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "terraform_aws_template", // docker-composeを使用する場合に必要
+  "workspaceFolder": "/home/vscode/workspaces",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "[terraform]": {
+          "editor.defaultFormatter": "hashicorp.terraform",
+          "editor.formatOnSave": true,
+          "editor.formatOnSaveMode": "file"
+        },
+        "[terraform-vars]": {
+          "editor.defaultFormatter": "hashicorp.terraform",
+          "editor.formatOnSave": true,
+          "editor.formatOnSaveMode": "file"
+        }
+      },
+      "extensions": [
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode.makefile-tools"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+version: "3.0"
+
+services:
+  terraform_aws_template:
+    container_name: terraform_aws_template
+    image: terraform_aws_template
+    platform: linux/amd64
+    build:
+      context: ./
+    volumes:
+        # ユーザー作成をする際に、/home/vscodeディレクトリに
+        # .sshなどのディレクトリが自動で作成されるのでマウントできない。
+        - ../:/home/vscode/workspaces:cached
+    entrypoint: "/bin/sh"
+    env_file:
+      - ../.env
+    tty: true
+    # working_dir: /home/vscode/workspaces

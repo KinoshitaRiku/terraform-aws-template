@@ -13,11 +13,23 @@ build:
 up:
 	docker-compose up -d
 
-init:
-	docker-compose exec terraform_aws_template terraform init -upgrade
-
-plan:
-	docker-compose exec terraform_aws_template terraform plan
-
 down:
 	docker-compose down --rmi all
+
+##########
+# frontend
+##########
+init_frontend:
+	cd frontend && terraform init -upgrade
+
+plan_frontend:
+	cd frfrontendont && terraform plan
+
+##########
+# backend
+##########
+init_backend:
+	cd backend && terraform init -upgrade
+
+plan_backend:
+	cd backend && terraform plan

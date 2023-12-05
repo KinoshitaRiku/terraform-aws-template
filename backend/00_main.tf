@@ -9,9 +9,10 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-northeast-1"
+  region = "ap-northeast-1"
   default_tags {
     tags = {
+      env        = var.env
       repogitory = "terraform-aws-template"
       directory  = "frontend"
     }
@@ -31,3 +32,6 @@ provider "aws" {
 
 data "aws_caller_identity" "current" {}
 
+data "external" "generate_date" {
+  program = ["bash", "${path.module}/scripts/generate_date.sh"]
+}
